@@ -35,6 +35,9 @@ void List<T>::PrintListBackwards() const
 	{
 		return;
 	}
+	Node* curr = pHead;
+	int firstIndex = 0;
+	PrintInverseNode(curr, firstIndex);
 }
 
 template <typename T>
@@ -44,7 +47,7 @@ void List<T>::Reverse()
 	{
 		return;
 	}
-
+	
 	
 }
 
@@ -60,6 +63,11 @@ typename List<T>::Node* List<T>::BuildList(T* data, int numNodes, Node* tempHead
 template<typename T>
 void List<T>::PrintNode(Node* currentNode, int& index) const
 {
+	if (currentNode == nullptr)
+	{
+		return;
+	}
+	
 	if(--index == 0)
 	{
 		std::cout << currentNode->data << std::endl;
@@ -67,4 +75,23 @@ void List<T>::PrintNode(Node* currentNode, int& index) const
 	}
 	std::cout << currentNode->data << ", ";
 	PrintNode(currentNode->pNext, index);
+}
+
+template <typename T>
+void List<T>::PrintInverseNode(Node* currentNode, int index) const
+{
+	if(currentNode == nullptr)
+	{
+		return;
+	}
+	
+	PrintInverseNode(currentNode->pNext, index + 1);
+
+	std::cout << currentNode->data;
+	if(index != 0)
+	{
+		std::cout << ", ";
+		return;
+	}
+	std::cout << std::endl;
 }

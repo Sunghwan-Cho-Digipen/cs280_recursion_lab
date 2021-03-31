@@ -43,7 +43,7 @@ private:
 	Node* BuildList(T* data, int numNodes, Node* pHead);
 
 	void PrintNode(Node* currentNode, int& index) const;
-
+	void PrintInverseNode(Node* currentNode, int index) const;
 	Node* pHead;
 	int nextNodeIndex;
 	int totalNodeNum;
