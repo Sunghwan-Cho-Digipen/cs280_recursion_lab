@@ -24,3 +24,22 @@ template <int BOARDSIZE>
 void Queens<BOARDSIZE>::SetQueen(int xPos, int yPos)
 {
 }
+
+template <int BOARDSIZE>
+void Queens<BOARDSIZE>::PrintSolution()
+{
+    std::cout << "-------------------------------" << std::endl;
+    for (int y = 0; y < BOARDSIZE; y++) {
+        for (int x = 0; x < BOARDSIZE; x++) {
+            if (board[y][x] == true) {
+                std::cout << "X ";
+            }
+            else {
+                std::cout << "- ";
+            }
+        }
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
+

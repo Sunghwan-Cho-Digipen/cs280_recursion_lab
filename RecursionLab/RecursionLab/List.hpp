@@ -11,7 +11,7 @@ Creation date: 03/31/2021
 ******************************************************************/
 
 template <typename T>
-List<T>::List(T* data, int numNode) : nextNodeIndex(0), totalNodeNum(numNode)
+List<T>::List(T* data, int numNode) : nextNodeIndex(0), totalNodeNum(numNode), pHead(nullptr)
 {
 	pHead = BuildList(data, numNode, pHead);
 }

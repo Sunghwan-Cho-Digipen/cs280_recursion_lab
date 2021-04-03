@@ -12,7 +12,8 @@ Creation date: 03/31/2021
 #include <iostream>
 #include "LargestSubset.h"
 
-int FindTotal(int* values, int startIndex, int endIndex) {
+int FindTotal(int* values, int startIndex, int endIndex)
+{
 	int total = 0;
 	if (startIndex > endIndex) {
 		return 0x80000000;

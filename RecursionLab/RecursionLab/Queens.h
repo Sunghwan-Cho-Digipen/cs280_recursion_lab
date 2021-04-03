@@ -16,6 +16,7 @@ public:
 	Queens();
 	int FindSolutions(bool displaySolution = true);
 	void SetQueen(int xPos, int yPos);
+	void PrintSolution();
 private:
 	// Create any own private functions or private data memembers that you like
 	
