@@ -29,5 +29,45 @@ int FindTotal(int* values, int startIndex, int endIndex)
 
 int FindLargestSubset(int* values, int count)
 {
-	return 0;
+	const int maxIndex = count - 1;
+	int largestNum = FindTotal(values, 0, maxIndex);
+	int potentialNum = 0;
+	int otherNum = 0;
+	for(int i = 0; i < count; ++i)
+	{
+		if(values[i] < 0)
+		{
+			if(i == maxIndex)
+			{
+				potentialNum = FindLargestSubset(values, maxIndex);
+				if(largestNum < potentialNum)
+				{
+					largestNum = potentialNum;
+				}
+			}
+			else if(i == 0)
+			{
+				potentialNum = FindLargestSubset(values + 1, maxIndex);
+				if (largestNum < potentialNum)
+				{
+					largestNum = potentialNum;
+				}
+			}
+			else
+			{
+				potentialNum = FindLargestSubset(values, i);
+				otherNum = FindLargestSubset(values + i + 1, maxIndex - i);
+				if (largestNum < potentialNum)
+				{
+					largestNum = potentialNum;
+				}
+				if (largestNum < otherNum)
+				{
+					largestNum = otherNum;
+				}
+			}
+		}
+	}
+	
+	return largestNum;
 }
