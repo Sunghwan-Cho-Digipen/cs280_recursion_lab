@@ -47,8 +47,9 @@ void List<T>::Reverse()
 	{
 		return;
 	}
-	
-	
+	Node* curr = pHead;
+	int firstIndex = 0;
+	ReverseHelperFunction(curr, firstIndex);
 }
 
 template<typename T>
@@ -94,4 +95,31 @@ void List<T>::PrintInverseNode(Node* currentNode, int index) const
 		return;
 	}
 	std::cout << std::endl;
+}
+
+template <typename T>
+void List<T>::ReverseHelperFunction(Node* currentNode, int index)
+{
+	if (currentNode == nullptr)
+	{
+		return;
+	}
+
+	if(index == totalNodeNum - 1)
+	{
+		return;
+	}
+	
+	ReverseHelperFunction(currentNode->pNext, index + 1);
+	Node* tempNode = currentNode;
+	currentNode = currentNode->pNext;
+	currentNode->pNext = tempNode;
+	if(index == totalNodeNum - 2)
+	{
+		pHead = currentNode;
+	}
+	if(index == 0)
+	{
+		currentNode->pNext->pNext = nullptr;
+	}
 }

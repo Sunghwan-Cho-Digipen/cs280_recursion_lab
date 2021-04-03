@@ -44,6 +44,7 @@ private:
 
 	void PrintNode(Node* currentNode, int& index) const;
 	void PrintInverseNode(Node* currentNode, int index) const;
+	void ReverseHelperFunction(Node* currentNode, int index);
 	Node* pHead;
 	int nextNodeIndex;
 	int totalNodeNum;
