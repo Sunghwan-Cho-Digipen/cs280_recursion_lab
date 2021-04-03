@@ -54,6 +54,10 @@ void List<T>::Reverse()
 
 template<typename T>
 typename List<T>::Node* List<T>::BuildList(T* data, int numNodes, Node* tempHead) {
+	if(data == nullptr)
+	{
+		return nullptr;
+	}
 	if(numNodes == 1) 
 	{
 		return new Node{ *data, tempHead , nextNodeIndex++};
@@ -105,6 +109,11 @@ void List<T>::ReverseHelperFunction(Node* currentNode, int index)
 		return;
 	}
 
+	if(totalNodeNum == 1)
+	{
+		return;
+	}
+	
 	if(index == totalNodeNum - 1)
 	{
 		return;
