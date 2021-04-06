@@ -19,6 +19,12 @@ public:
 	void PrintSolution();
 private:
 	// Create any own private functions or private data memembers that you like
+
+	void eightQueens(bool displaySolution, int row = 0);
+	bool checkValid(int col, int row);
+	bool columnCheck(int col);
+	bool rowCheck(int row);
+	bool diagonalCheck(int col, int row);
 	
 	int solutions;
 	bool board[BOARDSIZE][BOARDSIZE];
